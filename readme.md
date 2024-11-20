@@ -1,6 +1,6 @@
-# 🎮 Jeu de Clic Interactif  
+# 🎮 Jeu de boites
 
-Bienvenue dans **le Jeu de Clic Interactif** !  
+Bienvenue dans **le Jeu de Clic boites** !  
 Un petit jeu amusant pour tester vos réflexes, votre rapidité et passer un bon moment. 🕹️  
 
 ## 🌟 Pourquoi ce jeu ?  
