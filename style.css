@@ -1,33 +1,134 @@
-#board{
-    display: flex;
-    flex-wrap: wrap;
+/* Global Body */
+body {
+    margin: 0; /* Supprime les marges par défaut autour de la page */
+    display: flex; /* Utilise le modèle de mise en page flexbox pour disposer les éléments */
+    justify-content: center; /* Aligne les éléments horizontalement au centre */
+    align-items: center; /* Aligne les éléments verticalement au centre */
+    height: 100vh; /* Définit la hauteur de la page à 100% de la hauteur de la fenêtre */
+    background-image: url(jeux.jpg); /* Définit une image de fond pour la page */
+    background-size: cover; /* Assure que l'image de fond couvre toute la fenêtre */
+    font-family: Arial, sans-serif; /* Définit la police de caractères utilisée pour le texte */
 }
 
-.box{
-    width: 75px;
-    height: 75px;
-    background-color: rgb(212, 250, 76);
-    font-size: 3em;
-    text-align: center;
-    line-height: 75px;
-    margin: 5px;
-    animation: appear 1s;
-    border-radius: 6px;
-
+/* Container principal du jeu */
+.game-container {
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
+    padding: 20px; /* Ajoute un espace de 20px autour du contenu à l'intérieur du conteneur */
+    background-color: rgba(255, 255, 255, 0.8); /* Définit la couleur de fond avec de la transparence (0.8) */
+    border-radius: 15px; /* Arrondit les coins du conteneur avec un rayon de 15px */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ajoute une ombre floue autour du conteneur */
+    width: 450px; /* Définit la largeur du conteneur à 450px */
 }
 
-.box-clicked{
-    background-color: #ccc;
-    color: #aaa;
-
+/* Section des contrôles du jeu (Boutons et Timer) */
+.controls {
+    margin-bottom: 20px; /* Ajoute un espace de 20px en dessous de la section des contrôles */
+    display: flex; /* Utilise le modèle de mise en page flexbox pour disposer les éléments */
+    justify-content: space-around; /* Espace les éléments de manière égale sur toute la largeur */
+    align-items: center; /* Aligne les éléments au centre sur l'axe vertical */
+    gap: 10px; /* Ajoute un espace de 10px entre les éléments */
 }
 
-@keyframes appear{
-from{
-    transform:  scale(0) rotate(180deg)
-}
-to{
-    transform: scale(1) rotate(0deg);
+#start-button, #pause-button, #restart-button {
+    padding: 10px 20px; /* Ajoute de l'espace à l'intérieur des boutons */
+    font-size: 1.2em; /* Définit la taille du texte à 1.2 fois la taille normale */
+    border: none; /* Supprime la bordure par défaut des boutons */
+    border-radius: 8px; /* Arrondit les coins des boutons avec un rayon de 8px */
+    cursor: pointer; /* Change le curseur pour une main lors du survol des boutons */
+    transition: background-color 0.3s ease; /* Crée une transition douce lors du changement de couleur de fond */
+    background-color: #38c172; /* Définit la couleur de fond des boutons */
+    color: white; /* Définit la couleur du texte des boutons en blanc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous les boutons */
 }
 
+#start-button:hover, #pause-button:hover, #restart-button:hover {
+    background-color: #2d9e55; /* Change la couleur de fond lorsque la souris passe sur les boutons */
+}
+
+#timer {
+    font-size: 1.5em; /* Définit la taille du texte du timer à 1.5 fois la taille normale */
+    color: #ffffff; /* Définit la couleur du texte du timer en blanc */
+}
+
+/* Plateau de jeu */
+#board {
+    display: flex; /* Utilise le modèle de mise en page flexbox pour disposer les boîtes */
+    flex-wrap: wrap; /* Permet aux éléments de se déplacer sur plusieurs lignes si nécessaire */
+    justify-content: center; /* Centre les boîtes horizontalement */
+    gap: 10px; /* Ajoute un espace de 10px entre les boîtes */
+    margin-top: 20px; /* Ajoute un espace de 20px au-dessus du plateau */
+}
+
+.box {
+    width: 75px; /* Définit la largeur des boîtes à 75px */
+    height: 75px; /* Définit la hauteur des boîtes à 75px */
+    background-color: rgb(212, 250, 76); /* Définit la couleur de fond des boîtes */
+    font-size: 2em; /* Définit la taille du texte à 2 fois la taille normale */
+    text-align: center; /* Centre le texte à l'intérieur des boîtes */
+    line-height: 75px; /* Aligne le texte verticalement au centre de la boîte */
+    margin: 5px; /* Ajoute un espace de 5px autour de chaque boîte */
+    animation: appear 1s; /* Applique une animation à chaque boîte qui dure 1 seconde */
+    border-radius: 6px; /* Arrondit les coins des boîtes avec un rayon de 6px */
+    cursor: pointer; /* Change le curseur pour une main lors du survol des boîtes */
+    transition: background-color 0.8s, color 0.8s, transform 0.8s; /* Crée une transition douce lors du changement de couleur et de taille */
+}
+
+/* Effet lors du clic */
+.box-clicked {
+    background-color: #ccc; /* Change la couleur de fond lors du clic */
+    color: #aaa; /* Change la couleur du texte lors du clic */
+    transform: scale(0.8); /* Réduit la taille de la boîte lorsqu'elle est cliquée */
+}
+
+.box.error {
+    color: rgb(144, 58, 58); /* Définit la couleur du texte en rouge pour les erreurs */
+    background-color: rgb(255, 160, 190); /* Définit la couleur de fond en rose clair pour les erreurs */
+}
+
+.box.success {
+    color: rgb(11, 138, 22); /* Définit la couleur du texte en vert pour le succès */
+    background-color: rgb(172, 251, 172); /* Définit la couleur de fond en vert clair pour le succès */
+}
+
+.box.notice {
+    color: rgb(18, 16, 151); /* Définit la couleur du texte en bleu pour les notifications */
+    background-color: rgb(184, 217, 255); /* Définit la couleur de fond en bleu clair pour les notifications */
+}
+
+/* Animation pour faire apparaître les boîtes */
+@keyframes appear {
+    from {
+        transform: scale(0) rotate(180deg); /* Fait commencer l'animation avec une boîte petite et tournée */
+    }
+    to {
+        transform: scale(1) rotate(0deg); /* Fait grandir la boîte et la remettre dans sa position d'origine */
+    }
+}
+
+/* Notifications */
+#notifications {
+    margin-top: 10px; /* Ajoute un espace de 10px au-dessus des notifications */
+}
+
+.uk-alert {
+    margin-bottom: 10px; /* Ajoute un espace de 10px en dessous des notifications */
+    padding: 10px; /* Ajoute un espace de 10px à l'intérieur de la notification */
+    border-radius: 8px; /* Arrondit les coins de la notification */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous la notification */
+}
+
+/* Espacement entre les éléments du jeu */
+.game-container > .controls {
+    margin-bottom: 25px; /* Ajoute un espace de 25px en dessous de la section des contrôles */
+}
+
+/* Ajout de quelques marges entre les boîtes */
+.box {
+    margin-bottom: 10px; /* Ajoute un espace de 10px en bas de chaque boîte */
+}
+
+/* Ajustement du fond pour plus de lisibilité */
+.game-container {
+    background-color: rgba(105, 105, 105, 0.9); /* Change la couleur de fond en gris avec une transparence de 0.9 */
+    border-radius: 15px; /* Arrondit les coins du conteneur de jeu */
 }
