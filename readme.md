@@ -25,4 +25,3 @@ Ce jeu repose sur des bases solides :
 ## 🖥️ Ce dont vous avez besoin  
 - Un navigateur web moderne (Google Chrome, Mozilla Firefox, Microsoft Edge, etc.).  
 - Envie de jouer, tout simplement ! 😄  
-
