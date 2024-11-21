@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.6/css/uikit.min.css" />
+    <title>Jeu de Boîtes</title>
     <link rel="stylesheet" href="style.css">
-    <title>Jeu</title>
 </head>
-<body>
+<body><div class="game">
     <div class="game-container">
+        <h1>Jeu de Boîtes</h1>
         <div class="controls">
-            <button id="start-button" class="uk-button uk-button-primary">Commencer</button>
-            <button id="pause-button" class="uk-button uk-button-secondary uk-hidden">Pause</button>
-            <div id="timer" class="uk-text-large"></div>
+            <button id="start-button">Démarrer</button>
+            <div id="timer">Temps restant : 30s</div>
+            <div id="best-time">Meilleur temps : -</div>
         </div>
         <div id="board"></div>
-        <div id="notifications"></div> <!-- Conteneur des notifications -->
-        <button id="restart-button" class="uk-button uk-button-danger uk-hidden">Recommencer</button>
     </div>
-
+</div>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.6/js/uikit.min.js"></script>
 </body>
 </html>
